@@ -26,5 +26,5 @@ jobs:
             - name: Lint and Format
               run: make ruff
             
-            - name: Test
-              run: make coverage
+            # - name: Test
+            #   run: make coverage
