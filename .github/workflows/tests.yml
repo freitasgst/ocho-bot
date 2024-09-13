@@ -1,0 +1,30 @@
+name: Tests
+
+on: 
+    push:
+    pull_request:
+        branches:
+            - main
+
+jobs:
+    test:
+        name: Test
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+            
+            - name: Setup Python
+              uses: actions/setup-python@v5
+              with: 
+                python-version: "3.11"
+            
+            - name: Install dependencies
+              run: make install-dev
+            
+            - name: Lint and Format
+              run: make ruff
+            
+            # - name: Test
+            #   run: make coverage
