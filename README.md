@@ -33,8 +33,7 @@ You just need to add your BOT_TOKEN to token.sample.txt and rename the file to t
 ### Run Lint and Formatter
 ---
 ```sh
-make lint
-make format
+make ruff
 ```
 
 ### Run Tests
