@@ -3,7 +3,6 @@
 # Ocho Bot
 ---
 [![Python](https://img.shields.io/badge/python-3.12-green)](https://www.python.org)
-[![Ruff](https://img.shields.io/badge/code%20style-ruff-000000.svg)](https://github.com/psf/ruff)
 
 ![@OchoBot](/assets/images/ocho_avatar.jpg "@OchoBot")
 
