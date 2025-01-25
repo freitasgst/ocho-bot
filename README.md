@@ -19,6 +19,9 @@ You can also:
 - Ask how many you still need to drink to achieve it;
 - Watch the video ([Ocho Vasos Al Dia](https://www.youtube.com/watch?v=qfgaGcjp1tE&ab_channel=PedroRito)) for motivation!
 
+## TODO
+This is an old code, from last year. I intend to improve it and write some unit tests. 
+
 ## Installation
 ---
 ```sh
