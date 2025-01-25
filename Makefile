@@ -37,3 +37,5 @@ lint:
 
 format:
 	ruff format --line-length=100 --target-version=py312 .
+
+ruff: lint format

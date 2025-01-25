@@ -1,0 +1,58 @@
+name: Trivy Scan
+
+on:
+    push:
+    pull_request: 
+        branches:
+            - main
+
+jobs: 
+    trivy-fs:
+        name: Scan filesystem
+        runs-on: ubuntu-latest
+        permissions:
+            actions: read
+            contents: read
+            security-events: write
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4.1.7
+            
+            - name: Scan filesystem
+              uses: aquasecurity/trivy-action@0.24.0
+              with:
+                scan-type: fs
+                format: sarif
+                output: trivy-results.sarif
+            
+            - name: Upload scan results
+              uses: github/codeql-action/upload-sarif@v3.26.6
+              if: cancelled() == false
+              with:
+                sarif_file: trivy-results.sarif
+    
+    trivy-repo:
+        name: Scan repository
+        runs-on: ubuntu-latest
+        permissions:
+            actions: read
+            contents: read
+            security-events: write
+    
+        steps: 
+            - name: Checkout
+              uses: actions/checkout@v4.1.7
+                
+            - name: Scan repository
+              uses: aquasecurity/trivy-action@0.24.0
+              with:
+                scan-type: repo
+                format: sarif
+                output: trivy-results.sarif
+            
+            - name: Upload scan results
+              uses: github/codeql-action/upload-sarif@v3.26.6
+              if: cancelled() == false
+              with:
+                sarif_file: trivy-results.sarif
